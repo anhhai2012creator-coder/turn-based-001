@@ -1,0 +1,20 @@
+{
+  "chapter_1": {
+    "stages": [
+      {
+        "stage_id": 1,
+        "bot_name": "Tân binh",
+        "power_multiplier": 1.0,
+        "stats": { "hp": 100, "atk": 8, "def": 10, "spd": 100, "en": 2 },
+        "rewards": { "anh_sao": 10, "kim_cuong": 50, "vpnc": 100, "exp": 500 }
+      },
+      {
+        "stage_id": 2,
+        "bot_name": "Ninja Đánh Thuê",
+        "power_multiplier": 1.15,
+        "stats": { "hp": 115, "atk": 9, "def": 11, "spd": 105, "en": 2 },
+        "rewards": { "anh_sao": 10, "kim_cuong": 50, "vpnc": 100, "exp": 500 }
+      }
+    ]
+  }
+}
