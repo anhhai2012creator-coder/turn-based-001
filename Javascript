@@ -1,0 +1,33 @@
+class Team {
+    constructor() {
+        // Hàng trước (Front Row): slot 0 và 1 (Tương ứng Nv 1, Nv 2)
+        this.frontRow = [null, null]; 
+        // Hàng sau (Back Row): slot 0 (Tương ứng Nv 3)
+        this.backRow = [null];        
+    }
+
+    // Logic 1: Lấy mục tiêu mặc định (Ưu tiên hàng trước, hết hàng trước mới đánh hàng sau)
+    getDefaultTarget() {
+        // Lọc các nhân vật còn sống ở hàng trước
+        let aliveFront = this.frontRow.filter(char => char !== null && char.hp > 0);
+        if (aliveFront.length > 0) {
+            return aliveFront[0]; // Trả về mục tiêu đầu tiên còn sống ở hàng trước
+        }
+        
+        // Nếu hàng trước đã chết hết, kiểm tra hàng sau
+        let aliveBack = this.backRow.filter(char => char !== null && char.hp > 0);
+        if (aliveBack.length > 0) {
+            return aliveBack[0];
+        }
+        
+        return null; // Quét sạch toàn đội
+    }
+
+    // Logic 2: Kỹ năng chỉ định đánh hàng sau (Ví dụ sát thủ nhắm vào Nv 3)
+    getBackRowTarget() {
+        let aliveBack = this.backRow.filter(char => char !== null && char.hp > 0);
+        if (aliveBack.length > 0) return aliveBack[0];
+        // Nếu hàng sau không có ai hoặc đã chết, buộc phải đánh hàng trước
+        return this.getDefaultTarget(); 
+    }
+}
